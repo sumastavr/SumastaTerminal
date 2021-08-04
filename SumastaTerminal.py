@@ -5,8 +5,8 @@
 
 # WARNING! All changes made in this file will be lost!
 
-COMPORT=0
-BAUDRATE=115200
+COMPORT=1
+BAUDRATE=9600
 BYTESIZE=8
 STOPBIT=1
 TIMEOUT=10
@@ -48,7 +48,7 @@ class Worker(QObject):
         while self.working:
             line = ser.readline().decode('utf-8')
             print(line)
-            time.sleep(0.1)
+            #time.sleep(0.1)
             self.intReady.emit(line)
             # if line != '':
             # self.textEdit_3.append(line)
@@ -403,10 +403,10 @@ class Ui_MainWindow(QMainWindow):
     
                 self.textEdit.append("{}".format(redText))
                 
-            elif e.key() == 0 : #backspace
+            elif e.key() == QtCore.Qt.Key_Backspace : #backspace
                 print("DEL")
                 textLength=len(self.textEdit_2.toPlainText())
-                tempString=self.textEdit_2.toPlainText()[:textLength-2]
+                tempString=self.textEdit_2.toPlainText()[:textLength-1]
                 self.textEdit_2.setText(tempString)    
             else:    
                 print(e.key())
@@ -434,7 +434,7 @@ class Ui_MainWindow(QMainWindow):
 
     def onIntReady(self, i):
         self.textEdit.append("{}".format(i))
-        print(i)
+        #print(i)
         
     def sendData(self):
         
