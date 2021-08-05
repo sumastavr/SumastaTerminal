@@ -5,8 +5,8 @@
 
 # WARNING! All changes made in this file will be lost!
 
-COMPORT=1
-BAUDRATE=9600
+COMPORT=0
+BAUDRATE=115200
 BYTESIZE=8
 STOPBIT=1
 TIMEOUT=10
